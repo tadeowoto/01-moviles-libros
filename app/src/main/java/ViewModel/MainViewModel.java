@@ -38,6 +38,7 @@ public class MainViewModel extends AndroidViewModel {
         Libro l = repo.buscarLibroPorTitulo(titulo);
         if(l != null){
             libro.setValue(l);
+            // aca deberia abrir un intent con el detalle del libro, pero podemos hacer un mutable de usuario en el cual cuando cambia abrir el intent.
         }else{
             tituloMutable.setValue("no se encontro el libro");
         }

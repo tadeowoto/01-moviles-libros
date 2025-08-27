@@ -9,8 +9,6 @@ public class LibroRepository {
 
     public LibroRepository() {
         libroList = new ArrayList<>();
-
-        // Crear lista de libros mock
         libroList.add(new Libro(
                 1,
                 "Cien Años de Soledad",
@@ -56,7 +54,7 @@ public class LibroRepository {
         return libroList;
     }
 
-    // Método para buscar un libro por título
+
     public Libro buscarLibroPorTitulo(String titulo) {
         for (Libro libro : libroList) {
             if (libro.getTitulo().equalsIgnoreCase(titulo)) {
