@@ -5,57 +5,60 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffff"
     tools:context=".MainActivity">
 
+    <!-- Título -->
     <TextView
         android:id="@+id/titulo"
-        android:layout_width="169dp"
-        android:layout_height="43dp"
-        android:text="Biblioteca de Libros!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="📚 Biblioteca de Libros"
+        android:textColor="#1a1a1a"
+        android:textSize="26sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.268" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="60dp" />
+    <EditText
+        android:id="@+id/editTextTituloLibro"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:hint="🔍 Busca tu libro..."
+        android:background="@android:drawable/edit_text"
+        android:padding="12dp"
+        android:textColor="#1a1a1a"
+        android:textColorHint="#aaaaaa"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/titulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="24dp" />
 
     <Button
         android:id="@+id/botonBuscar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="220dp"
-        android:text="Buscar!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTituloLibro"
-        android:layout_width="266dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="276dp"
-        android:layout_marginBottom="61dp"
-        android:ems="10"
-        android:hint="Busca tu Libro"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/noEncontrado"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        android:text="Buscar"
+        android:textAllCaps="false"
+        android:backgroundTint="#2979FF"
+        android:textColor="#ffffff"
+        app:layout_constraintTop_toBottomOf="@id/editTextTituloLibro"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:id="@+id/noEncontrado"
-        android:layout_width="172dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="205dp"
-        android:layout_marginEnd="206dp"
-        android:layout_marginBottom="315dp"
-        android:text="..."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Esperando búsqueda..."
+        android:textColor="#1a1a1a"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/botonBuscar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTituloLibro" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,9 @@
 package com.example.libros;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         viewModel = new ViewModelProvider(this).get(MainViewModel.class);
-        super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(binding.getRoot());
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -51,11 +53,26 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        binding.botonBuscar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewModel.buscarLibro(binding.editTextTituloLibro.getText().toString());
+
+        viewModel.getLibro().observe(this, libro -> {
+            if (libro != null) {
+                // Si se encontró el libro, abrimos el detalle
+                Intent intent = new Intent(MainActivity.this, DetalleLibroActivity.class);
+                intent.putExtra("libro", libro);
+                startActivity(intent);
             }
+        });
+        viewModel.getMensaje().observe(this, mensaje -> {
+            if (mensaje != null && mensaje.equals("no se encontro el libro")) {
+                binding.noEncontrado.setText(mensaje);
+            }
+        });
+
+
+        //aca busco el libro y lo muestro en el detalle
+        binding.botonBuscar.setOnClickListener(v -> {
+            String tituloBuscado = binding.editTextTituloLibro.getText().toString();
+            viewModel.buscarLibro(tituloBuscado);
         });
 
     }

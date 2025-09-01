@@ -1,11 +1,16 @@
 package ViewModel;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.app.Application;
+import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+
+import com.example.libros.DetalleLibroActivity;
 
 import Model.Libro;
 import Model.LibroRepository;
@@ -19,26 +24,21 @@ public class MainViewModel extends AndroidViewModel {
         super(application);
     }
 
-    public LiveData getTitulo() {
-        if (tituloMutable.getValue() == null) {
-            return new MutableLiveData<String>();
-        }
-        return tituloMutable;
-    };
-
-    public LiveData getLibro() {
-        if (libro.getValue() == null) {
-            return new MutableLiveData<Libro>();
-        }
+    public LiveData<Libro> getLibro() {
         return libro;
-    };
+    }
+
+    public LiveData<String> getMensaje() {
+        return tituloMutable;
+    }
+
 
     public void buscarLibro(String titulo){
         LibroRepository repo = new LibroRepository();
         Libro l = repo.buscarLibroPorTitulo(titulo);
         if(l != null){
+            //si encontro el libro le setea el libro al mutable que observa el main
             libro.setValue(l);
-            // aca deberia abrir un intent con el detalle del libro, pero podemos hacer un mutable de usuario en el cual cuando cambia abrir el intent.
         }else{
             tituloMutable.setValue("no se encontro el libro");
         }
