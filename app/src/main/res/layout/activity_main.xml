@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffff"
+    android:background="#F8F3CE"
     tools:context=".MainActivity">
 
     <!-- Título -->
@@ -13,52 +13,104 @@
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:text="📚 Biblioteca de Libros"
-        android:textColor="#1a1a1a"
+        android:textColor="#57564F"
         android:textSize="26sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="60dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Barra de búsqueda -->
     <EditText
         android:id="@+id/editTextTituloLibro"
         android:layout_width="0dp"
         android:layout_height="55dp"
+        android:layout_margin="24dp"
+        android:backgroundTint="#DDDAD0"
         android:hint="🔍 Busca tu libro..."
-        android:background="@android:drawable/edit_text"
-        android:padding="12dp"
-        android:textColor="#1a1a1a"
-        android:textColorHint="#aaaaaa"
         android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@id/titulo"
-        app:layout_constraintStart_toStartOf="parent"
+        android:padding="12dp"
+        android:textColor="#57564F"
+        android:textColorHint="#57564F"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="24dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titulo" />
 
+    <!-- Botón -->
     <Button
         android:id="@+id/botonBuscar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#57564F"
         android:text="Buscar"
         android:textAllCaps="false"
-        android:backgroundTint="#2979FF"
         android:textColor="#ffffff"
-        app:layout_constraintTop_toBottomOf="@id/editTextTituloLibro"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextTituloLibro" />
 
+    <!-- Texto de estado -->
     <TextView
         android:id="@+id/noEncontrado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="Esperando búsqueda..."
         android:textColor="#1a1a1a"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/botonBuscar"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/botonBuscar" />
 
+
+    <!-- Sección de recomendados -->
+
+    <!-- Pie de página motivador -->
+
+    <TextView
+        android:id="@+id/recomendadosTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="141dp"
+        android:text="📖 Recomendados:"
+        android:textColor="#57564F"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/recomendadosLista"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/recomendadosLista"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="128dp"
+        android:lineSpacingExtra="2dp"
+        android:padding="12dp"
+        android:text="• 1984 - George Orwell\n• Cien Años de Soledad - Gabriel García Márquez\n• El Principito - Antoine de Saint-Exupéry\n• Orgullo y Prejuicio - Jane Austen\n• Don Quijote de la Mancha - Miguel de Cervantes"
+        android:textColor="#1a1a1a"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/footer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="☕️ La mejor biblioteca de libros en Android"
+        android:textColor="#57564F"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+

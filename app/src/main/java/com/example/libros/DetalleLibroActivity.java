@@ -7,6 +7,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.bumptech.glide.Glide;
 import com.example.libros.databinding.ActivityDetalleLibroBinding;
 
 import Model.Libro;
@@ -31,6 +32,12 @@ public class DetalleLibroActivity extends AppCompatActivity {
             binding.autorLibro.setText("Autor: " + libro.getAutor());
             binding.paginasLibro.setText("Páginas: " + libro.getCantPaginas());
             binding.descripcionLibro.setText(libro.getDescripcion());
+            Glide.with(this)
+                    .load(libro.getImagenUrl())
+                    .into(binding.imagenLibro);
+        } else {
+            Toast.makeText(this, "No se encontró el libro", Toast.LENGTH_SHORT).show();
+            finish();
         }
     }
 

@@ -12,13 +12,24 @@ public class Libro implements Serializable {
     private String autor;
     private  int cantPaginas;
     private String Descripcion;
+    private String imagenUrl;
 
-    public Libro(int id, String titulo, String autor, int cantPaginas, String descripcion) {
+    public Libro(int id, String titulo, String autor, int cantPaginas, String descripcion, String imagenUrl) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.cantPaginas = cantPaginas;
         Descripcion = descripcion;
+        this.imagenUrl = imagenUrl;
+    }
+
+
+    public String getImagenUrl() {
+        return imagenUrl;
+    }
+
+    public void setImagenUrl(String imagenUrl) {
+        this.imagenUrl = imagenUrl;
     }
 
     public int getId() {
