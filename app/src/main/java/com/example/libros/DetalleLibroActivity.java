@@ -34,6 +34,10 @@ public class DetalleLibroActivity extends AppCompatActivity {
             binding.descripcionLibro.setText(libro.getDescripcion());
             Glide.with(this)
                     .load(libro.getImagenUrl())
+                    .placeholder(
+                            R.drawable.ic_launcher_foreground
+                    )
+                    .error(R.drawable.ic_launcher_foreground)
                     .into(binding.imagenLibro);
         } else {
             Toast.makeText(this, "No se encontró el libro", Toast.LENGTH_SHORT).show();
